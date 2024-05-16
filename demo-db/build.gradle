@@ -1,0 +1,10 @@
+// 子项目demo-db的build.gradle文件
+
+// 特定于Spring Boot的配置
+springBoot {
+    // 主类名
+    mainClass = 'com.example.demo.db.DemoDbApplication'
+
+    dependencies {
+    }
+}

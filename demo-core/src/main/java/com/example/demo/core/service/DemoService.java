@@ -1,12 +1,18 @@
 package com.example.demo.core.service;
 
+import com.example.demo.db.service.EnvService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class DemoService {
+    private final EnvService envService;
+
     public String getRuntimeTimes() {
+        log.info("获取运行环境信息: {}", envService.getEnv());
         // 使用纳秒取得时间 START
         long dbStartTime = System.nanoTime();
         // 使用纳秒取得时间 END

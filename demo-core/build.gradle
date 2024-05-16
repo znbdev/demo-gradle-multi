@@ -6,5 +6,6 @@ springBoot {
     mainClass = 'com.example.demo.core.DemoCoreApplication'
 
     dependencies {
+        implementation project(':demo-db')
     }
 }
