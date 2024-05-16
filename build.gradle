@@ -1,4 +1,10 @@
 // 根项目的build.gradle文件
+group = 'com.example.demo'
+version = '0.0.1-SNAPSHOT'
+
+ext {
+    commonsLang3Version = '3.14.0'
+}
 
 buildscript {
     repositories {
@@ -14,6 +20,12 @@ subprojects {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+
+    group = rootProject.group
+    version = rootProject.version
+
     repositories {
         mavenCentral()
     }
@@ -22,6 +34,10 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
+        implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testCompileOnly 'org.projectlombok:lombok'
+        testAnnotationProcessor 'org.projectlombok:lombok'
     }
 }
